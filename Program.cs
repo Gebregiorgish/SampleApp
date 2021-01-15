@@ -12,19 +12,21 @@ namespace SampleApp
         {
             List<Employee> employees = new List<Employee>()
         {
-             new Employee() { Id=1, FirstName="Sam", LastName="Adams", Salary=75000},
-             new Employee() { Id=2, FirstName="John", LastName="Doh", Salary=85000},
-             new Employee() { Id=3, FirstName="Justin",LastName="Jason", Salary=100000},
-             new Employee() { Id=4, FirstName="Selena", LastName="Trump", Salary=120000},
-             new Employee() { Id=5, FirstName="Ruth", LastName="Nathen", Salary=150000},
+             new Employee() { Id=1, FirstName="Sam", LastName="Adams", HourlyRate=50},
+             new Employee() { Id=2, FirstName="John", LastName="Doh", HourlyRate=60},
+             new Employee() { Id=3, FirstName="Justin",LastName="Jason", HourlyRate=80},
+             new Employee() { Id=4, FirstName="Selena", LastName="Trump", HourlyRate=55},
+             new Employee() { Id=5, FirstName="Ruth", LastName="Nathen", HourlyRate=75},
 
 
         };
-           foreach (var e in employees)
+            foreach (var e in employees)
             {
-                
-               Console.WriteLine( e.PrintFristNameLastName(e));
-                Console.Write("Salary " + " = "+ e.Salary);
+
+                Console.WriteLine(e.PrintFristNameLastName(e));
+                Console.WriteLine("Salary = "  + e.HourlyRate + "---------"
+                    +"Annual Salary + " + e.GetAnnualSalary(e.HourlyRate));
+
                 Console.WriteLine("----------------------------");
             }
             Console.Write("END");
@@ -38,23 +40,24 @@ namespace SampleApp
 
         public string LastName { get; set; }
 
-        public int Salary { get; set; }
+        public Double HourlyRate { get; set; }
 
-        public  string PrintFristNameLastName(Employee employee)
+        public string PrintFristNameLastName(Employee employee)
         {
             //Employee e = new Employee();
 
-             return employee.FirstName + " " + employee.FirstName;
+            return employee.FirstName + " " + employee.FirstName;
         }
-         public int GetSalary(Employee employee)
+        public Double GetAnnualSalary(Double hourlyRate)
         {
-            return employee.Salary;
+           const int monthsInAYear = 12;
+            const int hoursInAWeek = 40;
+            Double totlalSalary;
+            totlalSalary = hourlyRate * hoursInAWeek * monthsInAYear;
+            return totlalSalary;
         }
 
-        //public Employee GetEmpyeeById(Employee e)
-        //{
-           
-        //}
-       
+
+
     }
 }
