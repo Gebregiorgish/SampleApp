@@ -9,24 +9,27 @@ namespace SampleApp
     public interface IEmployee
     {
         string PrintFristNameLastName(Employee employee);
-        Double GetAnnualSalary(Double hourlyRate);
+        Double GetAnnualSalary( Double hourlyRate);
     }
+    public enum EmployeeRole { M, E }
     public class Employee: IEmployee
     {
+        const int monthsInAYear = 12;
+        const int hoursInAWeek = 40;
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public Double HourlyRate { get; set; }
-        public string PrintFristNameLastName(Employee employee)
+        public string Role { get; set; }
+        
+        public string PrintFristNameLastName( Employee employee)
         {
             //Employee e = new Employee();
 
             return employee.FirstName + " " + employee.FirstName;
         }
-        public Double GetAnnualSalary(Double hourlyRate)
+        public virtual Double GetAnnualSalary(Double hourlyRate)
         {
-            const int monthsInAYear = 12;
-            const int hoursInAWeek = 40;
             Double totlalSalary;
             totlalSalary = hourlyRate * hoursInAWeek * monthsInAYear;
             return totlalSalary;

@@ -12,24 +12,27 @@ namespace SampleApp
         {
             List<Employee> employees = new List<Employee>()
         {
-             new Employee() { Id=1, FirstName="Sam", LastName="Adams", HourlyRate=50},
-             new Employee() { Id=2, FirstName="John", LastName="Doh", HourlyRate=60},
-             new Employee() { Id=3, FirstName="Justin",LastName="Jason", HourlyRate=80},
-             new Employee() { Id=4, FirstName="Selena", LastName="Trump", HourlyRate=55},
-             new Employee() { Id=5, FirstName="Ruth", LastName="Nathen", HourlyRate=75},
+             new Employee() { Id=1, FirstName="Sam", LastName="Adams", HourlyRate=50, Role=EmployeeRole.E.ToString()},
+             new Employee() { Id=2, FirstName="John", LastName="Doh", HourlyRate=60, Role=EmployeeRole.E.ToString()},
+             new Employee() { Id=3, FirstName="Justin",LastName="Jason", HourlyRate=80, Role=EmployeeRole.M.ToString()},
+             new Employee() { Id=4, FirstName="Selena", LastName="Trump", HourlyRate=55, Role=EmployeeRole.E.ToString()},
+             new Employee() { Id=5, FirstName="Ruth", LastName="Nathen", HourlyRate=75,Role=EmployeeRole.M.ToString()},
 
 
         };
+
             foreach (var e in employees)
             {
-
+                Manager m = new Manager();
                 Console.WriteLine(e.PrintFristNameLastName(e));
-                Console.WriteLine("Salary = "  + e.HourlyRate + "---------"
-                    +"Annual Salary + " + e.GetAnnualSalary(e.HourlyRate));
+                Console.WriteLine("Hourly Salary = " + e.HourlyRate + "---------"
+                    + "Annual Salary = " + e.GetAnnualSalary(e.HourlyRate));
 
+                if (e.Role == EmployeeRole.M.ToString())
+                    Console.WriteLine("Manager Annual Bonus Included = {0}", m.GetAnnualBonus(e.HourlyRate));
                 Console.WriteLine("----------------------------");
             }
-            Console.Write("END");
+            Console.WriteLine("END");
         }
     }
 }
