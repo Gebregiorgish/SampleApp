@@ -23,13 +23,19 @@ namespace SampleApp
 
             foreach (var e in employees)
             {
-                Manager m = new Manager();
                 Console.WriteLine(e.PrintFristNameLastName(e));
                 Console.WriteLine("Hourly Salary = " + e.HourlyRate + "---------"
                     + "Annual Salary = " + e.GetAnnualSalary(e.HourlyRate));
 
+                Manager manager = new Manager();
                 if (e.Role == EmployeeRole.M.ToString())
-                    Console.WriteLine("Manager Annual Bonus Included = {0}", m.GetAnnualBonus(e.HourlyRate));
+                {
+                    Console.WriteLine("Manager Annual Bonus Included = {0}", manager.GetAnnualBonus(e.HourlyRate));
+                }
+                else
+                {
+                    Console.WriteLine("Sorry you have {0} bonus at this time", manager.Bonus);
+                }
                 Console.WriteLine("----------------------------");
             }
             Console.WriteLine("END");

@@ -21,6 +21,7 @@ namespace SampleApp
         public string LastName { get; set; }
         public Double HourlyRate { get; set; }
         public string Role { get; set; }
+        public Manager Manager { get; set; }
         
         public string PrintFristNameLastName( Employee employee)
         {
