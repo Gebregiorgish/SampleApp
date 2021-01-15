@@ -24,8 +24,10 @@ namespace SampleApp
             {
                 
                Console.WriteLine( e.PrintFristNameLastName(e));
+                Console.Write("Salary " + " = "+ e.Salary);
                 Console.WriteLine("----------------------------");
             }
+            Console.Write("END");
         }
     }
 
@@ -44,5 +46,15 @@ namespace SampleApp
 
              return employee.FirstName + " " + employee.FirstName;
         }
+         public int GetSalary(Employee employee)
+        {
+            return employee.Salary;
+        }
+
+        //public Employee GetEmpyeeById(Employee e)
+        //{
+           
+        //}
+       
     }
 }
