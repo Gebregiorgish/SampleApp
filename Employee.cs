@@ -26,7 +26,7 @@ namespace SampleApp
         {
             //Employee e = new Employee();
 
-            return employee.FirstName + " " + employee.FirstName;
+            return employee.FirstName + " " + employee.LastName;
         }
         public virtual Double GetAnnualSalary(Double hourlyRate)
         {
